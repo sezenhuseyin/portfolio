@@ -1,4 +1,4 @@
-import 'package:flutter_web/material.dart';
+import 'package:flutter/material.dart';
 
 class CircleWidget extends StatelessWidget {
   final double width;
@@ -8,13 +8,12 @@ class CircleWidget extends StatelessWidget {
   final Color circleColor;
 
   const CircleWidget({
-    Key key,
-    this.width,
-    this.height,
-    this.outerRadius,
-    this.innerRadius,
-    this.circleColor,
-  }) : super(key: key);
+    required this.width,
+    required this.height,
+    required this.outerRadius,
+    required this.innerRadius,
+    required this.circleColor,
+  });
 
   @override
   Widget build(BuildContext context) {

@@ -1,8 +1,8 @@
-import 'package:flutter_web/material.dart';
 import 'package:portfolio/constants/strings.dart';
 import 'package:portfolio/constants/text_styles.dart';
 import 'package:portfolio/widgets/circle_widget.dart';
 import 'package:portfolio/widgets/responsive_widget.dart';
+import 'package:flutter/material.dart';
 
 class AboutWidget extends StatefulWidget {
   @override
@@ -232,7 +232,7 @@ class _AboutWidgetState extends State<AboutWidget> {
   }
 
   // general widgets:-----------------------------------------------------------
-  Widget _buildDesign({double fontSize}) {
+  Widget _buildDesign({double? fontSize}) {
     return Center(
       child: Text(
         Strings.about,
@@ -241,7 +241,7 @@ class _AboutWidgetState extends State<AboutWidget> {
     );
   }
 
-  Widget _buildSummary({int quarterTurns = 3, double fontSize}) {
+  Widget _buildSummary({int quarterTurns = 3, double? fontSize}) {
     return Text(
       Strings.summary,
       textAlign: TextAlign.justify,
@@ -249,7 +249,7 @@ class _AboutWidgetState extends State<AboutWidget> {
     );
   }
 
-  Widget _buildAbout({double fontSize}) {
+  Widget _buildAbout({double? fontSize}) {
     return RichText(
       text: TextSpan(
         text: Strings.about,

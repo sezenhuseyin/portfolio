@@ -1,7 +1,7 @@
 import 'dart:html' as html;
+import 'package:flutter/material.dart';
+import 'package:flutter/gestures.dart';
 
-import 'package:flutter_web/gestures.dart';
-import 'package:flutter_web/material.dart';
 import 'package:portfolio/constants/strings.dart';
 import 'package:portfolio/constants/text_styles.dart';
 import 'package:portfolio/utils/hover/custom_cursor_widget.dart';
@@ -231,7 +231,7 @@ class _HireWidgetState extends State<HireWidget> {
     );
   }
 
-  Widget _buildHireSummary({double fontSize}) {
+  Widget _buildHireSummary({double? fontSize}) {
     return StrikeThroughOnHover(
       onEnterListener: (e) => _mouseEnter(true),
       onExitListener: (e) => _mouseEnter(false),

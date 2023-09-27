@@ -1,4 +1,4 @@
-import 'package:flutter_web/material.dart';
+import 'package:flutter/material.dart';
 
 // ignore: prefer_generic_function_type_aliases
 typedef void OnSmallScreen();
@@ -16,14 +16,13 @@ class ResponsiveWidget extends StatelessWidget {
   final OnLargeScreen onLargeScreen;
 
   const ResponsiveWidget({
-    Key key,
-    @required this.largeScreen,
-    this.mediumScreen,
-    this.smallScreen,
-    this.onSmallScreen,
-    this.onMediumScreen,
-    this.onLargeScreen,
-  }) : super(key: key);
+    required this.largeScreen,
+    required this.mediumScreen,
+    required this.smallScreen,
+    required this.onSmallScreen,
+    required this.onMediumScreen,
+    required this.onLargeScreen,
+  });
 
 //  static bool isSmallScreen(BuildContext context) {
 //    return MediaQuery.of(context).size.width < 800;

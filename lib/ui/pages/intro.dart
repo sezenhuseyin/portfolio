@@ -1,4 +1,4 @@
-import 'package:flutter_web/material.dart';
+import 'package:flutter/material.dart';
 import 'package:portfolio/constants/assets.dart';
 import 'package:portfolio/constants/strings.dart';
 import 'package:portfolio/constants/text_styles.dart';
@@ -328,7 +328,7 @@ class _IntroWidgetState extends State<IntroWidget> {
     );
   }
 
-  Widget _buildAboutMe({int quarterTurns = 3, double fontSize}) {
+  Widget _buildAboutMe({int quarterTurns = 3, double? fontSize}) {
     return RotatedBox(
       quarterTurns: quarterTurns,
       child: Text(
@@ -340,7 +340,7 @@ class _IntroWidgetState extends State<IntroWidget> {
     );
   }
 
-  Widget _buildHello({double fontSize}) {
+  Widget _buildHello({double? fontSize}) {
     return RichText(
       text: TextSpan(
         text: Strings.hello,

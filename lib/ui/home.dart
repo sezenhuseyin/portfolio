@@ -1,7 +1,6 @@
 import 'dart:html' as html;
 
-import 'package:flutter_web/cupertino.dart';
-import 'package:flutter_web/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:portfolio/constants/strings.dart';
 import 'package:portfolio/constants/text_styles.dart';
 import 'package:portfolio/ui/pages/about.dart';
@@ -11,15 +10,14 @@ import 'package:portfolio/ui/pages/skills.dart';
 import 'package:portfolio/utils/hover/custom_cursor_widget.dart';
 import 'package:portfolio/utils/screen/screen_utils.dart';
 import 'package:portfolio/widgets/responsive_widget.dart';
+import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
-
   @override
   _HomePageState createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
-
   bool isSmallScreen = false;
 
   @override
@@ -39,9 +37,7 @@ class _HomePageState extends State<HomePage> {
                       ? Alignment.topRight
                       : Alignment.bottomLeft,
                 ),
-                isSmallScreen
-                    ? SizedBox.shrink()
-                    : _buildSocialButtons()
+                isSmallScreen ? SizedBox.shrink() : _buildSocialButtons()
               ],
             );
           },
@@ -89,7 +85,7 @@ class _HomePageState extends State<HomePage> {
               mediumScreen: _buildMediumScreen(context),
               smallScreen: _buildSmallScreen(context),
               onSmallScreen: () {
-                if(!isSmallScreen) {
+                if (!isSmallScreen) {
                   Future.delayed(Duration.zero, () {
                     setState(() {
                       print('insdie callback');
@@ -99,7 +95,7 @@ class _HomePageState extends State<HomePage> {
                 }
               },
               onMediumScreen: () {
-                if(isSmallScreen) {
+                if (isSmallScreen) {
                   Future.delayed(Duration.zero, () {
                     setState(() {
                       print('insdie callback');
@@ -109,7 +105,7 @@ class _HomePageState extends State<HomePage> {
                 }
               },
               onLargeScreen: () {
-                if(isSmallScreen) {
+                if (isSmallScreen) {
                   Future.delayed(Duration.zero, () {
                     setState(() {
                       print('insdie callback');
@@ -198,11 +194,16 @@ class _HomePageState extends State<HomePage> {
         crossAxisAlignment: WrapCrossAlignment.center,
         direction: axis,
         children: <Widget>[
-          _buildMenuItem(quarterTurns, Strings.menu_medium_link, Strings.menu_medium),
-          _buildMenuItem(quarterTurns, Strings.menu_github_link, Strings.menu_github),
-          _buildMenuItem(quarterTurns, Strings.menu_linked_in_link, Strings.menu_linked_in),
-          _buildMenuItem(quarterTurns, Strings.menu_twitter_link, Strings.menu_twitter),
-          _buildMenuItem(quarterTurns, Strings.menu_facebook_link, Strings.menu_facebook),
+          _buildMenuItem(
+              quarterTurns, Strings.menu_medium_link, Strings.menu_medium),
+          _buildMenuItem(
+              quarterTurns, Strings.menu_github_link, Strings.menu_github),
+          _buildMenuItem(quarterTurns, Strings.menu_linked_in_link,
+              Strings.menu_linked_in),
+          _buildMenuItem(
+              quarterTurns, Strings.menu_twitter_link, Strings.menu_twitter),
+          _buildMenuItem(
+              quarterTurns, Strings.menu_facebook_link, Strings.menu_facebook),
         ],
       ),
     );

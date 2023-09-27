@@ -1,4 +1,4 @@
-import 'package:flutter_web/material.dart';
+import 'package:flutter/material.dart';
 import 'package:portfolio/constants/strings.dart';
 import 'package:portfolio/constants/text_styles.dart';
 import 'package:portfolio/models/education.dart';
@@ -174,9 +174,13 @@ class _SkillsWidgetState extends State<SkillsWidget> {
                   _buildSkills(
                       fontSize: MediaQuery.of(context).size.width * 0.23),
                   SizedBox(height: MediaQuery.of(context).size.height * 0.03),
-                  _buildSkillsList(context, headingFontSize: MediaQuery.of(context).size.width * 0.022),
+                  _buildSkillsList(context,
+                      headingFontSize:
+                          MediaQuery.of(context).size.width * 0.022),
                   SizedBox(height: MediaQuery.of(context).size.height * 0.03),
-                  _buildEducation(headingFontSize: MediaQuery.of(context).size.width * 0.022),
+                  _buildEducation(
+                      headingFontSize:
+                          MediaQuery.of(context).size.width * 0.022),
                 ],
               ),
             ),
@@ -251,7 +255,7 @@ class _SkillsWidgetState extends State<SkillsWidget> {
     );
   }
 
-  Widget _buildSkills({double fontSize}) {
+  Widget _buildSkills({double? fontSize}) {
     return RichText(
       text: TextSpan(
         text: Strings.skills,
@@ -271,7 +275,7 @@ class _SkillsWidgetState extends State<SkillsWidget> {
     );
   }
 
-  Widget _buildSkillsList(BuildContext context, {double headingFontSize}) {
+  Widget _buildSkillsList(BuildContext context, {double? headingFontSize}) {
     final List<Widget> widgets = Strings.skillsList
         .map((skill) => Padding(
               padding: EdgeInsets.only(right: 8.0),
@@ -283,14 +287,14 @@ class _SkillsWidgetState extends State<SkillsWidget> {
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        _buildSkillsContainerHeading(fontSize: headingFontSize),
+        _buildSkillsContainerHeading(fontSize: headingFontSize!),
         SizedBox(height: 8.0),
         Wrap(children: widgets),
       ],
     );
   }
 
-  Widget _buildSkillsContainerHeading({double fontSize}) {
+  Widget _buildSkillsContainerHeading({double? fontSize}) {
     return Text(
       Strings.skills_i_have,
       style: TextStyles.body.copyWith(fontSize: fontSize),
@@ -308,12 +312,12 @@ class _SkillsWidgetState extends State<SkillsWidget> {
     );
   }
 
-  Widget _buildEducation({double headingFontSize}) {
+  Widget _buildEducation({double? headingFontSize}) {
     return Column(
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        _buildEducationContainerHeading(fontSize: headingFontSize),
+        _buildEducationContainerHeading(fontSize: headingFontSize!),
         SizedBox(height: 8.0),
         _buildEducationSummary(),
         SizedBox(height: 8.0),
@@ -322,7 +326,7 @@ class _SkillsWidgetState extends State<SkillsWidget> {
     );
   }
 
-  Widget _buildEducationContainerHeading({double fontSize}) {
+  Widget _buildEducationContainerHeading({double? fontSize}) {
     return Text(
       Strings.experience,
       style: TextStyles.body.copyWith(fontSize: fontSize),
@@ -336,12 +340,12 @@ class _SkillsWidgetState extends State<SkillsWidget> {
     );
   }
 
-  Widget _buildEducationTimeline({double headingFontSize}) {
+  Widget _buildEducationTimeline({double? headingFontSize}) {
     final widgets = Strings.educationList
         .map(
           (education) => _buildEducationTile(
             education,
-            headingFontSize: headingFontSize,
+            headingFontSize: headingFontSize!,
           ),
         )
         .toList();
@@ -351,7 +355,7 @@ class _SkillsWidgetState extends State<SkillsWidget> {
     );
   }
 
-  Widget _buildEducationTile(Education education, {double headingFontSize}) {
+  Widget _buildEducationTile(Education education, {double? headingFontSize}) {
     return Padding(
       padding: EdgeInsets.symmetric(vertical: 8.0),
       child: Column(

@@ -2,8 +2,7 @@
  * Created by 李卓原 on 2018/9/29.
  * email: zhuoyuan93@gmail.com
  */
-
-import 'package:flutter_web/material.dart';
+import 'package:flutter/material.dart';
 
 class ScreenUtil {
   static ScreenUtil instance = new ScreenUtil();
@@ -13,15 +12,15 @@ class ScreenUtil {
   double height;
   bool allowFontScaling;
 
-  static MediaQueryData _mediaQueryData;
-  static double _screenWidth;
-  static double _screenHeight;
-  static double _pixelRatio;
-  static double _statusBarHeight;
+  late MediaQueryData _mediaQueryData;
+  late double _screenWidth;
+  late double _screenHeight;
+  late double _pixelRatio;
+  late double _statusBarHeight;
 
-  static double _bottomBarHeight;
+  late double _bottomBarHeight;
 
-  static double _textScaleFactor;
+  late double _textScaleFactor;
 
   ScreenUtil({
     this.width = 1080,
@@ -44,31 +43,31 @@ class ScreenUtil {
     _textScaleFactor = mediaQuery.textScaleFactor;
   }
 
-  static MediaQueryData get mediaQueryData => _mediaQueryData;
+  MediaQueryData get mediaQueryData => _mediaQueryData;
 
   ///每个逻辑像素的字体像素数，字体的缩放比例
-  static double get textScaleFactory => _textScaleFactor;
+  double get textScaleFactory => _textScaleFactor;
 
   ///设备的像素密度
-  static double get pixelRatio => _pixelRatio;
+  double get pixelRatio => _pixelRatio;
 
   ///当前设备宽度 dp
-  static double get screenWidthDp => _screenWidth;
+  double get screenWidthDp => _screenWidth;
 
   ///当前设备高度 dp
-  static double get screenHeightDp => _screenHeight;
+  double get screenHeightDp => _screenHeight;
 
   ///当前设备宽度 px
-  static double get screenWidth => _screenWidth * _pixelRatio;
+  double get screenWidth => _screenWidth * _pixelRatio;
 
   ///当前设备高度 px
-  static double get screenHeight => _screenHeight * _pixelRatio;
+  double get screenHeight => _screenHeight * _pixelRatio;
 
   ///状态栏高度 dp 刘海屏会更高
-  static double get statusBarHeight => _statusBarHeight;
+  double get statusBarHeight => _statusBarHeight;
 
   ///底部安全区距离 dp
-  static double get bottomBarHeight => _bottomBarHeight;
+  double get bottomBarHeight => _bottomBarHeight;
 
   ///实际的dp与设计稿px的比例
   get scaleWidth => _screenWidth / instance.width;

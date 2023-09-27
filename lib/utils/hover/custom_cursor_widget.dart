@@ -1,10 +1,11 @@
-import 'package:flutter_web/gestures.dart';
-import 'package:flutter_web/material.dart';
+import 'package:flutter/material.dart';
 import 'package:universal_html/html.dart' as html;
+import 'package:flutter/gestures.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
 
 class CustomCursor extends MouseRegion {
   static final appContainer =
-  html.window.document.getElementById('app-container');
+      html.window.document.getElementById('app-container');
 
   // cursor types from http://www.javascripter.net/faq/stylesc.htm
   static final String pointer = 'pointer';
@@ -31,20 +32,20 @@ class CustomCursor extends MouseRegion {
   static final String wResize = 'w-resize';
   static final String swResize = 'sw-resize';
 
-  CustomCursor({Widget child, String cursorStyle = 'pointer'})
+  CustomCursor({Widget? child, String cursorStyle = 'pointer'})
       : super(
-    onHover: (PointerHoverEvent evt) {
-      if (kIsWeb) {
-        appContainer.style.cursor = cursorStyle;
-      }
-    },
-    onExit: (PointerExitEvent evt) {
-      if (kIsWeb) {
-        appContainer.style.cursor = 'default';
-      }
-    },
-    child: child,
-  );
+          onHover: (PointerHoverEvent evt) {
+            if (kIsWeb) {
+              appContainer!.style.cursor = cursorStyle;
+            }
+          },
+          onExit: (PointerExitEvent evt) {
+            if (kIsWeb) {
+              appContainer!.style.cursor = 'default';
+            }
+          },
+          child: child,
+        );
 }
 
 // ignore: prefer_generic_function_type_aliases
@@ -60,21 +61,18 @@ class StrikeThroughOnHover extends StatefulWidget {
 
   // You can also pass the translation in here if you want to
   StrikeThroughOnHover({
-    Key key,
-    this.child,
-    this.onEnterListener,
-    this.onExitListener,
-  }) : super(key: key);
+    required this.child,
+    required this.onEnterListener,
+    required this.onExitListener,
+  });
 
   @override
   _StrikeThroughOnHoverState createState() => _StrikeThroughOnHoverState();
 }
 
 class _StrikeThroughOnHoverState extends State<StrikeThroughOnHover> {
-  final nonHoverTransform = Matrix4.identity()
-    ..translate(0, 0, 0);
-  final hoverTransform = Matrix4.identity()
-    ..translate(0, -10, 0);
+  final nonHoverTransform = Matrix4.identity()..translate(0, 0, 0);
+  final hoverTransform = Matrix4.identity()..translate(0, -10, 0);
 
   bool _hovering = false;
 
